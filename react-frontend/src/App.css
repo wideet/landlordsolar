@@ -77,6 +77,39 @@
   text-align: center
 }
 
+.p4 {
+  text-align: center
+}
+
+.b1 {
+  text-align: center
+}
+
+.b2 {
+  text-align: center
+}
+
+.b3 {
+  text-align: center
+}
+
+
+.b1 >img {
+  width: 800px;
+}
+
+.b2 >img {
+  width: 800px;
+}
+
+.b3 >img {
+  width: 800px;
+}
+
+.in {
+  text-align: center
+}
+
 .Calculate {
   position: absolute;
   transform: translate(-50%, -50%);
