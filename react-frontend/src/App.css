@@ -39,17 +39,19 @@
 
 .btn {
   position: absolute;
-  top: 50%;
+  top: 15%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(370%, -120%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #555;
+  background-color:green;
   color: white;
   font-size: 16px;
   padding: 12px 24px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  width: 200px;
+  height: 75px;
 }
 
 .General-Desc {
@@ -61,4 +63,57 @@
   z-index: 1;
   font-size: 50pt;
   color: white;
+}
+
+.p1 {
+  text-align: center
+}
+
+.p2 {
+  text-align: center
+}
+
+.p3 {
+  text-align: center
+}
+
+.Calculate {
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+}
+
+/* Style the search field */
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 20%;
+  background: #f1f1f1;
+
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 10%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
 }
