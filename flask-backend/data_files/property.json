@@ -1,0 +1,16 @@
+{
+  "properties_list": [
+    {
+      "id": 1122,
+      "city": "Berkeley",
+      "state": "CA",
+      "address": "101 Berkeley Way",
+      "zip_code": 94704,
+      "utility_provider": "PG&E",
+      "solar_provider": "Sun Power",
+      "monthly_loan_amount": 105,
+      "landlord_id": 1
+    }
+  ]
+}
+
