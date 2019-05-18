@@ -55,6 +55,7 @@
 }
 
 .General-Desc {
+  padding-top: 200px;
   text-align: center;
   position: absolute;
   top: 50%;
@@ -126,26 +127,29 @@
 
 /* Style the search field */
 form.example input[type=text] {
-  padding: 10px;
+  top: 50%;
+  left: 50%;
   font-size: 17px;
   border: 1px solid grey;
-  float: left;
   width: 20%;
   background: #f1f1f1;
+  position: absolute;
+  transform: translate(-50%, -50%);
 
 }
 
 /* Style the submit button */
 form.example button {
-  float: left;
   width: 10%;
-  padding: 10px;
   background: #2196F3;
   color: white;
   font-size: 17px;
   border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
   cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 form.example button:hover {
