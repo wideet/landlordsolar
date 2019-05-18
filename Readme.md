@@ -10,15 +10,7 @@ npm run eject
 
 # Get started
 ```bash
-virtualenv --python python3 env
-```
-
-```bash
-source env/bin/activate
-```
-
-```bash
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 
 ```bash
