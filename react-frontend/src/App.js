@@ -32,6 +32,9 @@ class App extends Component {
         data: null,
         isLoaded: false,
         landlord: false,
+        propertyId: "",
+        productionData: null,
+        cumProfit: null,
     };
 
     this.changePage = this.changePage.bind(this);
@@ -58,131 +61,258 @@ class App extends Component {
     this.setState({quote: true});
   }
 
+  changeProperty(propertyId, buttonId) {
+    this.setState({propertyId: propertyId});
+    for (let i = 1; i < 3; i++) {
+      let id = 'button' + i;
+      document.getElementById(id).className = "tenant-button button5";
+    }
+    document.getElementById(buttonId).className = "tenant-button button-select";
+    if (buttonId === 'button1') {
+      this.changeSystemProduction();
+      this.changeCumProfit();
+      document.getElementById('lmp').innerHTML = '700 kWh';
+      document.getElementById('amsp').innerHTML = '$115.23';
+      document.getElementById('mlp').innerHTML = '$80.00';
+      document.getElementById('lmb').innerHTML = '$43.15';
+      document.getElementById('lmbs').innerHTML = 'Overdue';
+    } else {
+      this.changeSystemProduction1();
+      this.changeCumProfit1();
+      document.getElementById('lmp').innerHTML = '625 kWh';
+      document.getElementById('amsp').innerHTML = '$90.98';
+      document.getElementById('mlp').innerHTML = '$75.00';
+      document.getElementById('lmb').innerHTML = '$24.10';
+      document.getElementById('lmbs').innerHTML = 'Paid';
+    }
+  }
+
+  changeSystemProduction() {
+    const data = [['Month', 'Production'], ['01/19', 340], ['02/19', 530], ['03/19', 400], ['04/19', 570], ['05/19', 700]];
+    this.setState({productionData: data})
+  }
+
+  changeSystemProduction1() {
+    const data = [['Month', 'Production'], ['01/19', 320], ['02/19', 430], ['03/19', 407], ['04/19', 540], ['05/19', 625]];
+    this.setState({productionData: data})
+  }
+
+  changeCumProfit() {
+    let data = [
+      ['Date','Profit'],
+      ['2014', 5000],
+      ['2015', 5100],
+      ['2016', 5300],
+      ['2017', 5400],
+      ['2018', 5700],
+      ['2019', 5800],
+    ];
+    this.setState({cumProfit: data})
+  }
+
+  changeCumProfit1() {
+    let data = [
+      ['Date','Profit'],
+      ['2014', 4500],
+      ['2015', 4600],
+      ['2016', 4800],
+      ['2017', 4900],
+      ['2018', 5000],
+      ['2019', 5400],
+    ];
+    this.setState({cumProfit: data})
+  }
+
   render() {
-    var { isLoaded, data, landlord, quote } = this.state;
+    var { isLoaded, data, landlord, propertyId, productionData, cumProfit, quote } = this.state;
     if (landlord) {
-      return (
-        <div style={{height:"900px"}}>
-          <div style={{float: "left", height:"900px", "background": "#E1E1E1", "width": "350px", "opacity": "0.8"}}>
-            <div style={{"background": "#2C4CB7", "width": "100%", height:"100px"}}>
-              <div style={{"padding-top": "25px", color: "white", "text-align": "center", "font-size": "30px"}}>
-                Properties
-              </div>
-            </div>
-            <div class="property-div">
-              <button class="tenant-button button5">
-                1291 Milvia St
-              </button>
-            </div>
-            <div class="property-div">
-              <button class="tenant-button button5">
-                2393 Suh Ln
-              </button>
-            </div>
-            <div class="property-div">
-              <button class="tenant-button button5">
-               3240 Yuh Dr
-              </button>
-            </div>
-            <div class="property-div">
-              <button class="tenant-button button5">
-                420 Bruh Dr
-              </button>
-            </div>
-          </div>
-          <div style={{float: "left", "margin-left": "150px", "margin-top": "30px"}}>
-            <div style={{float: "left"}}>
-              <div class="stat-title">
-                 Last Month's Production
-              </div>
-              <div class="stat-amount" style={{"color": "#143CDE"}}>
-                 4600 kW
-              </div>
-              <div class="stat-title" style={{"margin-top": "100px", "background": "#1EC360", "width":"300px", "margin-left": "0px"}}>
-                 Average Monthly Solar Production
-              </div>
-              <div class="stat-amount" style={{"color": "#1EC360", "margin-left": "50px"}}>
-                 $96.05
-              </div>
-              <div class="stat-title" style={{"margin-top": "100px", "background": "#D81B06"}}>
-                 Monthly Loan Payment
-              </div>
-              <div class="stat-amount" style={{"color": "#D81B06"}}>
-                 $70.00
-              </div>
-              <div class="stat-title" style={{"margin-top": "100px", "background": "#555555", "opacity": "0.8"}}>
-                 Last Month's Bill
-              </div>
-              <div style={{"margin-top": "20px", "margin-left": "50px"}}>
-                <div style={{float: "left", "font-size": "20px"}}>
-                  PG&E
-                </div>
-                <div style={{float: "left", "margin-left": "20px", "font-size": "20px"}}>
-                  $45.021
-                </div>
-                <div style={{float: "left", "margin-left": "20px", "font-size": "20px"}}>
-                  Paid
+      if (propertyId === '') {
+        return (
+          <div style={{height:"900px"}}>
+            <div style={{float: "left", height:"900px", "background": "#E1E1E1", "width": "350px", "opacity": "0.8"}}>
+              <div style={{"background": "#2C4CB7", "width": "100%", height:"100px"}}>
+                <div style={{"padding-top": "25px", color: "white", "text-align": "center", "font-size": "30px"}}>
+                  Properties
                 </div>
               </div>
-              <div style={{"margin-left": "50px"}}>
-                <button class="tenant-button button4">
-                Contact Tenant
+              <div class="property-div">
+                <button id='button1' class="tenant-button button5" onClick={() => this.changeProperty('1234', 'button1')}>
+                  1291 Milvia St.
+                </button>
+              </div>
+              <div class="property-div">
+                <button id='button2' class="tenant-button button5" onClick={() => this.changeProperty('1234', 'button2')}>
+                  2393 Sun Ln.
                 </button>
               </div>
             </div>
-            <div style={{float: "left", "margin-left": "100px"}}>
-              <div class="stat-title" style={{"margin-left": "200px"}}>
-                 System's Production
+            <div style={{float: "left", "margin-left": "150px", "margin-top": "30px", "display":"none"}}>
+              <div style={{float: "left"}}>
+                <div class="stat-title">
+                   Last Month's Production
+                </div>
+                <div id='lmp' class="stat-amount" style={{"color": "#143CDE"}}>
+                </div>
+                <div class="stat-title" style={{"margin-top": "100px", "background": "#1EC360", "width":"300px", "margin-left": "0px"}}>
+                   Average Monthly Solar Profit
+                </div>
+                <div id='amsp' class="stat-amount" style={{"color": "#1EC360", "margin-left": "50px"}}>
+                </div>
+                <div class="stat-title" style={{"margin-top": "100px", "background": "#D81B06"}}>
+                   Monthly Loan Payment
+                </div>
+                <div id='mlp' class="stat-amount" style={{"color": "#D81B06"}}>
+                </div>
+                <div class="stat-title" style={{"margin-top": "100px", "background": "#555555", "opacity": "0.8"}}>
+                   Last Month's Bill
+                </div>
+                <div style={{"margin-top": "20px", "margin-left": "50px"}}>
+                  <div style={{float: "left", "font-size": "20px"}}>
+                    PG&E
+                  </div>
+                  <div id='lmb' style={{float: "left", "margin-left": "20px", "font-size": "20px"}}>
+                  </div>
+                  <div id='lmbs' style={{float: "left", "margin-left": "20px", "font-size": "20px"}}>
+                  </div>
+                </div>
+                <div style={{"margin-left": "50px"}}>
+                  <button class="tenant-button button4">
+                  Contact Tenant
+                  </button>
+                </div>
               </div>
-              <div style={{"margin-top": "50px", "margin-left": "100px"}}>
-                <Chart
-                  width={'500px'}
-                  height={'300px'}
-                  chartType="Bar"
-                  loader={<div>Loading Chart</div>}
-                  data={[
-                    ['Month', 'Production'],
-                    ['01/19', 20],
-                    ['02/19', 34],
-                    ['03/19', 40],
-                    ['04/19', 57],
-                    ['05/19', 30],
-                  ]}
-                  options={{
-                    legend: 'none',
-                  }}
-                  // For tests
-                  rootProps={{ 'data-testid': '2' }}
-                />
-              </div>
-              <div class="stat-title" style={{"margin-top": "30px", "margin-left": "200px", "background": "#1EC360"}}>
-                 Cumulative Profit
-              </div>
-              <div>
-                <Chart
-                  width={'700px'}
-                  height={'400px'}
-                  chartType="LineChart"
-                  loader={<div>Loading Chart</div>}
-                  data={[
-                    ['Date','Profit'],
-                    ['2014', 0],
-                    ['2015', 10],
-                    ['2016', 20],
-                    ['2017', 30],
-                    ['2018', 40],
-                    ['2019', 50],
-                  ]}
-                  options={{
-                    legend: 'none',
-                    colors: ['#1EC360']
-                  }}
-                />
+              <div style={{float: "left", "margin-left": "100px"}}>
+                <div class="stat-title" style={{"margin-left": "200px"}}>
+                   System's Production
+                </div>
+                <div style={{"margin-top": "50px", "margin-left": "100px"}}>
+                  <Chart
+                    width={'500px'}
+                    height={'300px'}
+                    chartType="Bar"
+                    loader={<div>Loading Chart</div>}
+                    data={productionData}
+                    options={{
+                      legend: 'none',
+                    }}
+                    // For tests
+                    rootProps={{ 'data-testid': '2' }}
+                  />
+                </div>
+                <div class="stat-title" style={{"margin-top": "30px", "margin-left": "200px", "background": "#1EC360"}}>
+                   Cumulative Profit
+                </div>
+                <div>
+                  <Chart
+                    width={'700px'}
+                    height={'400px'}
+                    chartType="LineChart"
+                    loader={<div>Loading Chart</div>}
+                    data={cumProfit}
+                    options={{
+                      legend: 'none',
+                      colors: ['#1EC360']
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )
+      } else {
+        return (
+          <div style={{height:"900px"}}>
+            <div style={{float: "left", height:"900px", "background": "#E1E1E1", "width": "350px", "opacity": "0.8"}}>
+              <div style={{"background": "#2C4CB7", "width": "100%", height:"100px"}}>
+                <div style={{"padding-top": "25px", color: "white", "text-align": "center", "font-size": "30px"}}>
+                  Properties
+                </div>
+              </div>
+              <div class="property-div">
+                <button id='button1' class="tenant-button button5" onClick={() => this.changeProperty('1234', 'button1')}>
+                  1291 Milvia St.
+                </button>
+              </div>
+              <div class="property-div">
+                <button id='button2' class="tenant-button button5" onClick={() => this.changeProperty('1234', 'button2')}>
+                  2393 Sun Ln.
+                </button>
+              </div>
+            </div>
+            <div style={{float: "left", "margin-left": "150px", "margin-top": "30px"}}>
+              <div style={{float: "left"}}>
+                <div class="stat-title">
+                   Last Month's Production
+                </div>
+                <div id='lmp' class="stat-amount" style={{"color": "#143CDE"}}>
+                </div>
+                <div class="stat-title" style={{"margin-top": "100px", "background": "#1EC360", "width":"300px", "margin-left": "0px"}}>
+                   Average Monthly Solar Profit
+                </div>
+                <div id='amsp' class="stat-amount" style={{"color": "#1EC360", "margin-left": "50px"}}>
+                </div>
+                <div class="stat-title" style={{"margin-top": "100px", "background": "#D81B06"}}>
+                   Monthly Loan Payment
+                </div>
+                <div id='mlp' class="stat-amount" style={{"color": "#D81B06"}}>
+                </div>
+                <div class="stat-title" style={{"margin-top": "100px", "background": "#555555", "opacity": "0.8"}}>
+                   Last Month's Bill
+                </div>
+                <div style={{"margin-top": "20px", "margin-left": "50px"}}>
+                  <div style={{float: "left", "font-size": "20px"}}>
+                    PG&E
+                  </div>
+                  <div id='lmb' style={{float: "left", "margin-left": "20px", "font-size": "20px"}}>
+                  </div>
+                  <div id='lmbs' style={{float: "left", "margin-left": "20px", "font-size": "20px"}}>
+                  </div>
+                </div>
+                <div style={{"margin-left": "50px"}}>
+                  <button class="tenant-button button4">
+                  Contact Tenant
+                  </button>
+                </div>
+              </div>
+              <div style={{float: "left", "margin-left": "100px"}}>
+                <div class="stat-title" style={{"margin-left": "200px"}}>
+                   System's Production
+                </div>
+                <div style={{"margin-top": "50px", "margin-left": "100px"}}>
+                  <Chart
+                    width={'500px'}
+                    height={'300px'}
+                    chartType="Bar"
+                    loader={<div>Loading Chart</div>}
+                    data={productionData}
+                    options={{
+                      legend: 'none',
+                    }}
+                    // For tests
+                    rootProps={{ 'data-testid': '2' }}
+                  />
+                </div>
+                <div class="stat-title" style={{"margin-top": "30px", "margin-left": "200px", "background": "#1EC360"}}>
+                   Cumulative Profit
+                </div>
+                <div>
+                  <Chart
+                    width={'700px'}
+                    height={'400px'}
+                    chartType="LineChart"
+                    loader={<div>Loading Chart</div>}
+                    data={cumProfit}
+                    options={{
+                      legend: 'none',
+                      colors: ['#1EC360']
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
       );
+    }
     } else if (quote) {
     return (
       <div className="App">
