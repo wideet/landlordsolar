@@ -20,5 +20,5 @@ npm run build
 
 ```bash
 cd ../flask-backend
-python main.py
+python3 main.py
 ```
