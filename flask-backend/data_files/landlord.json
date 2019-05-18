@@ -1,0 +1,11 @@
+{
+  "landlords_list": [
+    {
+      "id": 1,
+      "name": "Karl Walter",
+      "email": "kwalter@gmail.com",
+      "phone_number": "555-555-5555",
+      "password": "admin"
+    }
+  ]
+}
