@@ -13,8 +13,6 @@ import installation from './homepage/images/installation.PNG'
 
 import './App.css';
 
-import axios from 'axios'
-
 //const getData = () => {
 //    return axios
 //    .get('http://localhost:5000/dashboard_data', {
@@ -54,16 +52,16 @@ class App extends Component {
             <div className="Clouds">
               <img src={cloud_img}/>
                 <div className="General-Desc">
-                  <br/> Add Solar
-                  <br/> You make money
-                  <br/>We make it easy
+                  <br/>Your Rentals Go Solar 
+                  <br/> You Make Money
+                  <br/>We Make It Easy       
                 </div>
                   <button class="btn">Sign In</button>
                 <div ClassName="Calculate">
                   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
                   <form class="example" action="estimates-page">
                     <input type="text" placeholder="Address" name="search"></input>
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button type="submit"><i class="search"></i>Calculate Savings</button>
                   </form>
                 </div>
               </div>
