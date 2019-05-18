@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './homepage/images/landlord_solar_logo.png';
+import cloud_img from './homepage/images/sky_background.png'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <div className="Clouds">
+          <img src={cloud_img}/>
+        </div>
+        <div className="Logo">
+          <img src={logo}/>
+        </div>
+        <div className="Log-In">
+          <button>Sign In</button>
+        </div>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/App.js</code> hello.
         </p>
         <p> My Token = {window.token[1]} </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
