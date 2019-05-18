@@ -1,4 +1,5 @@
 #START FLASK PROJECT
+DO NOT DO THIS UNLESS YOU ARE WIDEET
 ```bash
 npm install -g yarn
 yarn global add create-react-app react-scripts
