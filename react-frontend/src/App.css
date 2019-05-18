@@ -119,11 +119,11 @@
   width: 1000px;
 }
 
-.Calculate {
+/* .Calculate {
   position: absolute;
   transform: translate(-50%, -50%);
 
-}
+} */
 
 /* Style the search field */
 form.example input[type=text] {
@@ -134,6 +134,8 @@ form.example input[type=text] {
   width: 20%;
   background: #f1f1f1;
   position: absolute;
+  top: 80%;
+  left: 45%;
   transform: translate(-50%, -50%);
 
 }
@@ -147,8 +149,8 @@ form.example button {
   border: 1px solid grey;
   cursor: pointer;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 80%;
+  left: 60%;
   transform: translate(-50%, -50%);
 }
 
