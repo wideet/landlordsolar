@@ -7,19 +7,22 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="Clouds">
-          <img src={cloud_img}/>
+        <div id="banner">
+          <div id="clouds_and_words">
+            <div className="Clouds">
+               <img src={cloud_img}/>
+               <button class="btn">Sign In</button>
+            </div>
+            <div className="General-Desc">
+              <br/>Your rentals go solar 
+              <br/> You make money
+              <br/>We make it easy         
+            </div>
+          </div>
+          <div className="Logo">
+            <img src={logo}/>
+          </div>
         </div>
-        <div className="Logo">
-          <img src={logo}/>
-        </div>
-        <div className="Log-In">
-          <button>Sign In</button>
-        </div>
-        <p>
-          Edit <code>src/App.js</code> hello.
-        </p>
-        <p> My Token = {window.token[1]} </p>
       </header>
     </div>
   );
