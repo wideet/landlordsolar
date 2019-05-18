@@ -54,6 +54,11 @@
   height: 75px;
 }
 
+.CloudsBanner > img{
+  position: relative;
+  width: 2000px;
+}
+
 .General-Desc {
   padding-top: 200px;
   text-align: center;
@@ -213,10 +218,10 @@ form.example input[type=text] {
   width: 20%;
   background: #f1f1f1;
   position: absolute;
-  top: 80%;
+  top: 90%;
   left: 45%;
   transform: translate(-50%, -50%);
-
+  height: 50px;
 }
 
 /* Style the submit button */
@@ -228,9 +233,11 @@ form.example button {
   border: 1px solid grey;
   cursor: pointer;
   position: absolute;
-  top: 80%;
+  top: 90%;
   left: 60%;
   transform: translate(-50%, -50%);
+  height: 50px;
+
 }
 
 form.example button:hover {
