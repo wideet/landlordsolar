@@ -9,6 +9,8 @@ import box1 from './homepage/images/box1_sunpower.PNG'
 import box2 from './homepage/images/box2_vivint.PNG'
 import box3 from './homepage/images/box3_petersendean.PNG'
 import installation from './homepage/images/installation.PNG'
+import banner_img from './homepage/images/banner.png'
+
 import { Chart } from "react-google-charts";
 
 
@@ -33,6 +35,8 @@ class App extends Component {
     };
 
     this.changePage = this.changePage.bind(this);
+    this.quote = this.quote.bind(this);
+
   }
 
   componentDidMount() {
@@ -50,8 +54,12 @@ class App extends Component {
     this.setState({landlord: true});
   }
 
+  quote() {
+    this.setState({quote: true});
+  }
+
   render() {
-    var { isLoaded, data, landlord } = this.state;
+    var { isLoaded, data, landlord, quote } = this.state;
     if (landlord) {
       return (
         <div style={{height:"900px"}}>
@@ -174,7 +182,30 @@ class App extends Component {
             </div>
           </div>
         </div>
-      )
+      );
+    } else if (quote) {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <div id="banner">
+            <div id="clouds_and_words">
+              <div className="CloudsBanner">
+                <img src={banner_img}/>
+            </div>
+            </div>
+            <div className="b1">
+              <img src={box1}/>
+            </div>
+            <div className="b2">
+              <img src={box2}/>
+            </div>
+            <div className="b3">
+              <img src={box3}/>
+            </div>
+            </div>
+        </header>
+        </div>
+        );
     } else {
       return (
       <div className="App">
@@ -193,7 +224,7 @@ class App extends Component {
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
                     <form class="example" action="estimates-page">
                       <input type="text" placeholder="Address" name="search"></input>
-                      <button type="submit"><i class="search"></i>Calculate Savings</button>
+                      <button class="search"  onClick={this.quote}>Calculate Savings</button>
                     </form>
                   </div>
                 </div>
