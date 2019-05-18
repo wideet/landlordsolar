@@ -10,6 +10,8 @@ import box2 from './homepage/images/box2_vivint.PNG'
 import box3 from './homepage/images/box3_petersendean.PNG'
 import installation from './homepage/images/installation.PNG'
 import banner_img from './homepage/images/banner.png'
+import box0 from './homepage/images/banner.png'
+
 
 import { Chart } from "react-google-charts";
 
@@ -365,14 +367,8 @@ class App extends Component {
             <div className="p1">
               <img src={first}/>
             </div>
-            <div className="b1">
-              <img src={box1}/>
-            </div>
-            <div className="b2">
-              <img src={box2}/>
-            </div>
-            <div className="b3">
-              <img src={box3}/>
+            <div className="b0">
+              <img src={box0}/>
             </div>
             <div className="p2">
               <img src={then}/>
