@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './homepage/images/landlord_solar_logo.png';
 import cloud_img from './homepage/images/sky_background.png';
 import placeholder from './homepage/images/flowdiagram.PNG';
@@ -13,8 +13,40 @@ import installation from './homepage/images/installation.PNG'
 
 import './App.css';
 
-function App() {
-  return (
+import axios from 'axios'
+
+//const getData = () => {
+//    return axios
+//    .get('http://localhost:5000/dashboard_data', {
+//        headers: {"Content-type" : "application/json"}
+//    })
+//}
+
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        data: null,
+        isLoaded: false,
+    }
+  }
+
+  componentDidMount() {
+    fetch('/api/dashboard_data')
+    .then(response => response.json())
+    .then(json => {
+        this.setState({
+            isLoaded: true,
+            data: json
+        })
+    });
+  }
+
+  render() {
+    var { isLoaded, data } = this.state;
+    return (
     <div className="App">
       <header className="App-header">
         <div id="banner">
@@ -22,11 +54,11 @@ function App() {
             <div className="Clouds">
               <img src={cloud_img}/>
                 <div className="General-Desc">
-                  <br/>Your rentals go solar 
+                  <br/> Add Solar
                   <br/> You make money
-                  <br/>We make it easy       
+                  <br/>We make it easy
                 </div>
-                  <button class="btn">Sign In</button>  
+                  <button class="btn">Sign In</button>
                 <div ClassName="Calculate">
                   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
                   <form class="example" action="estimates-page">
@@ -66,7 +98,8 @@ function App() {
         </div>
       </header>
     </div>
-  );
+        );
+    }
 }
 
 export default App;

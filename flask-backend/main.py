@@ -196,7 +196,7 @@ def get_property_records(landlord_id, property_id):
     return records_schema.jsonify(Record.query.filter_by(property_id=property_id))
 
 
-@app.route('/dashboard_data', methods=['GET'])
+@app.route('/api/dashboard_data', methods=['GET'])
 def get_full_schema():
     q = (db.session.query(Record, Property, Landlord)
          .filter(Record.landlord_id == Landlord.id)
