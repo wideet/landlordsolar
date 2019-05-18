@@ -11,6 +11,7 @@ import box3 from './homepage/images/box3_petersendean.PNG'
 import installation from './homepage/images/installation.PNG'
 
 
+import { Chart } from "react-google-charts";
 import './App.css';
 
 import axios from 'axios'
@@ -54,7 +55,7 @@ class App extends Component {
             <div className="Clouds">
               <img src={cloud_img}/>
                 <div className="General-Desc">
-                  <br/> Add Solar
+                  <br/>Your rentals go solar
                   <br/> You make money
                   <br/>We make it easy
                 </div>
