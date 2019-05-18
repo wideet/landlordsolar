@@ -170,28 +170,28 @@ def create_data(db, data_path):
 
 
 # Create a Landlord
-@app.route('/Landlord', methods=['GET'])
+@app.route('/api/Landlord', methods=['GET'])
 def get_landlords():
     return landlords_schema.jsonify(Landlord.query.all())
 
 
-@app.route('/Landlord/<id>', methods=['GET'])
+@app.route('/api/Landlord/<id>', methods=['GET'])
 def get_landlord(id):
     return landlords_schema.jsonify(Landlord.query.filter_by(id=id))
 
 
-@app.route('/Landlord/<id>/Properties', methods=['GET'])
+@app.route('/api/Landlord/<id>/Properties', methods=['GET'])
 def get_landlord_properties(id):
     return properties_schema.jsonify(Property.query.filter_by(landlord_id=id))
 
 
-@app.route('/Landlord/<landlord_id>/Properties/<property_id>', methods=['GET'])
+@app.route('/api/Landlord/<landlord_id>/Properties/<property_id>', methods=['GET'])
 def get_landlord_property(landlord_id, property_id):
     return properties_schema.jsonify(Property.query.filter_by(landlord_id=landlord_id,
                                                               id=property_id))
 
 
-@app.route('/Landlord/<landlord_id>/Properties/<property_id>/records', methods=['GET'])
+@app.route('/api/Landlord/<landlord_id>/Properties/<property_id>/records', methods=['GET'])
 def get_property_records(landlord_id, property_id):
     return records_schema.jsonify(Record.query.filter_by(property_id=property_id))
 
