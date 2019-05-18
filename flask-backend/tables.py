@@ -1,26 +1,3 @@
-from flask import Flask, request, json, render_template
-from flask_marshmallow import Marshmallow
-from flask_sqlalchemy import SQLAlchemy
-
-from datetime import *
-
-import os
-
-
-# INIT APP
-app = Flask("__main__")
-basedir = os.path.abspath(os.path.dirname(__file__))
-
-# DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'db.sqlite')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# INIT DB
-db = SQLAlchemy(app)
-
-# INIT MARSHMALLOW
-marsh = Marshmallow(app)
-
 
 # Landlord Table
 class Landlord(db.Model):
@@ -71,13 +48,3 @@ class Record(db.Model):
 
     property_id = db.Column(db.Integer, db.ForeignKey('property.id'), nullable=False)
 
-
-
-@app.route("/")
-def my_index():
-    return render_template("index.html",
-                                 token={1: 'HELLO'}
-                                 )
-
-
-app.run(debug=True)
