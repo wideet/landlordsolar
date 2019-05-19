@@ -10,7 +10,8 @@ import box2 from './homepage/images/box2_vivint.PNG'
 import box3 from './homepage/images/box3_petersendean.PNG'
 import installation from './homepage/images/installation.PNG'
 import banner_img from './homepage/images/banner.png'
-import box0 from './homepage/images/banner.png'
+import box0 from './homepage/images/newimg.PNG'
+import box7 from './homepage/images/box1_sunrun.PNG'
 
 
 import { Chart } from "react-google-charts";
@@ -90,12 +91,12 @@ class App extends Component {
   }
 
   changeSystemProduction() {
-    const data = [['Month', 'Production'], ['01/19', 340], ['02/19', 530], ['03/19', 400], ['04/19', 570], ['05/19', 700]];
+    const data = [['Month', '(kWh)'], ['01/19', 340], ['02/19', 530], ['03/19', 400], ['04/19', 570], ['05/19', 700]];
     this.setState({productionData: data})
   }
 
   changeSystemProduction1() {
-    const data = [['Month', 'Production'], ['01/19', 320], ['02/19', 430], ['03/19', 407], ['04/19', 540], ['05/19', 625]];
+    const data = [['Month', '(kWh)'], ['01/19', 320], ['02/19', 430], ['03/19', 407], ['04/19', 540], ['05/19', 625]];
     this.setState({productionData: data})
   }
 
@@ -130,9 +131,15 @@ class App extends Component {
     if (landlord) {
       if (propertyId === '') {
         return (
+          <div>
+          <div style={{position:'relative', width:'2000px', 'height': '60px', background:'#086E9A'}}>
+          </div>
+          <div className="Logo">
+            <img src={logo}/>
+          </div>
           <div style={{height:"900px"}}>
-            <div style={{float: "left", height:"900px", "background": "#E1E1E1", "width": "350px", "opacity": "0.8"}}>
-              <div style={{"background": "#2C4CB7", "width": "100%", height:"100px"}}>
+            <div style={{float: "left", height:"900px", "background": "#E1E1E1", "width": "350px"}}>
+              <div style={{"background": "#086E9A", "width": "100%", height:"100px"}}>
                 <div style={{"padding-top": "25px", color: "white", "text-align": "center", "font-size": "30px"}}>
                   Properties
                 </div>
@@ -151,12 +158,12 @@ class App extends Component {
             <div style={{float: "left", "margin-left": "150px", "margin-top": "30px", "display":"none"}}>
               <div style={{float: "left"}}>
                 <div class="stat-title">
-                   Last Month's Production
+                   Last Month's Output
                 </div>
                 <div id='lmp' class="stat-amount" style={{"color": "#143CDE"}}>
                 </div>
                 <div class="stat-title" style={{"margin-top": "100px", "background": "#1EC360", "width":"300px", "margin-left": "0px"}}>
-                   Average Monthly Solar Profit
+                   Average Monthly Solar Production
                 </div>
                 <div id='amsp' class="stat-amount" style={{"color": "#1EC360", "margin-left": "50px"}}>
                 </div>
@@ -196,13 +203,16 @@ class App extends Component {
                     data={productionData}
                     options={{
                       legend: 'none',
+                      vAxis: {
+                        title: 'kWh',
+                      },
                     }}
                     // For tests
                     rootProps={{ 'data-testid': '2' }}
                   />
                 </div>
                 <div class="stat-title" style={{"margin-top": "30px", "margin-left": "200px", "background": "#1EC360"}}>
-                   Cumulative Profit
+                   Cumulative Production
                 </div>
                 <div>
                   <Chart
@@ -213,19 +223,32 @@ class App extends Component {
                     data={cumProfit}
                     options={{
                       legend: 'none',
-                      colors: ['#1EC360']
+                      colors: ['#1EC360'],
+                      vAxis: {
+                        title: 'Dollars',
+                        viewWindow: {
+                          min: 3000,
+                        },
+                      },
                     }}
                   />
                 </div>
               </div>
             </div>
           </div>
+          </div>
         )
       } else {
         return (
+          <div>
+          <div style={{position:'relative', width:'2000px', 'height': '60px', background:'#086E9A'}}>
+          </div>
+          <div className="Logo">
+            <img src={logo}/>
+          </div>
           <div style={{height:"900px"}}>
-            <div style={{float: "left", height:"900px", "background": "#E1E1E1", "width": "350px", "opacity": "0.8"}}>
-              <div style={{"background": "#2C4CB7", "width": "100%", height:"100px"}}>
+            <div style={{float: "left", height:"900px", "background": "#E1E1E1", "width": "350px"}}>
+              <div style={{"background": "#086E9A", "width": "100%", height:"100px"}}>
                 <div style={{"padding-top": "25px", color: "white", "text-align": "center", "font-size": "30px"}}>
                   Properties
                 </div>
@@ -244,12 +267,12 @@ class App extends Component {
             <div style={{float: "left", "margin-left": "150px", "margin-top": "30px"}}>
               <div style={{float: "left"}}>
                 <div class="stat-title">
-                   Last Month's Production
+                   Last Month's Output
                 </div>
                 <div id='lmp' class="stat-amount" style={{"color": "#143CDE"}}>
                 </div>
                 <div class="stat-title" style={{"margin-top": "100px", "background": "#1EC360", "width":"300px", "margin-left": "0px"}}>
-                   Average Monthly Solar Profit
+                   Average Monthly Solar Production
                 </div>
                 <div id='amsp' class="stat-amount" style={{"color": "#1EC360", "margin-left": "50px"}}>
                 </div>
@@ -289,13 +312,16 @@ class App extends Component {
                     data={productionData}
                     options={{
                       legend: 'none',
+                      vAxis: {
+                        title: 'kWh',
+                      }
                     }}
                     // For tests
                     rootProps={{ 'data-testid': '2' }}
                   />
                 </div>
                 <div class="stat-title" style={{"margin-top": "30px", "margin-left": "200px", "background": "#1EC360"}}>
-                   Cumulative Profit
+                   Cumulative Production
                 </div>
                 <div>
                   <Chart
@@ -306,27 +332,33 @@ class App extends Component {
                     data={cumProfit}
                     options={{
                       legend: 'none',
-                      colors: ['#1EC360']
+                      colors: ['#1EC360'],
+                      vAxis: {
+                        title: 'Dollars',
+                        viewWindow: {
+                          min: 3000,
+                        },
+                      }
                     }}
                   />
                 </div>
               </div>
             </div>
           </div>
+          </div>
       );
     }
     } else if (quote) {
     return (
       <div className="App">
-        <header className="App-header">
+          <div style={{position:'relative', width:'2000px', 'height': '60px', background:'#086E9A'}}>
+          </div>
+          <div className="Logo">
+            <img src={logo}/>
+          </div>
           <div id="banner">
-            <div id="clouds_and_words">
-              <div className="CloudsBanner">
-                <img src={banner_img}/>
-            </div>
-            </div>
             <div className="b1">
-              <img src={box1}/>
+              <img src={box7}/>
             </div>
             <div className="b2">
               <img src={box2}/>
@@ -334,9 +366,8 @@ class App extends Component {
             <div className="b3">
               <img src={box3}/>
             </div>
-            </div>
-        </header>
-        </div>
+          </div>
+      </div>
         );
     } else {
       return (
@@ -351,7 +382,9 @@ class App extends Component {
                     <br/> You Make Money
                     <br/>We Make It Easy
                   </div>
+                  <div>
                     <button class="btn" onClick={this.changePage}>Sign In</button>
+                  </div>
                   <div ClassName="Calculate">
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
                     <form class="example" action="estimates-page">
