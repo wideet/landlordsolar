@@ -91,12 +91,12 @@ class App extends Component {
   }
 
   changeSystemProduction() {
-    const data = [['Month', '(kWh)'], ['01/19', 340], ['02/19', 530], ['03/19', 400], ['04/19', 570], ['05/19', 700]];
+    const data = [['Month', 'kWh'], ['01/19', 340], ['02/19', 530], ['03/19', 400], ['04/19', 570], ['05/19', 700]];
     this.setState({productionData: data})
   }
 
   changeSystemProduction1() {
-    const data = [['Month', '(kWh)'], ['01/19', 320], ['02/19', 430], ['03/19', 407], ['04/19', 540], ['05/19', 625]];
+    const data = [['Month', 'kWh'], ['01/19', 320], ['02/19', 430], ['03/19', 407], ['04/19', 540], ['05/19', 625]];
     this.setState({productionData: data})
   }
 
@@ -132,7 +132,7 @@ class App extends Component {
       if (propertyId === '') {
         return (
           <div>
-          <div style={{position:'relative', width:'2000px', 'height': '60px', background:'#086E9A'}}>
+          <div style={{position:'relative', width:'2000px', 'height': '60px', background:'#1D3D70'}}>
           </div>
           <div className="Logo">
             <img src={logo}/>
@@ -163,7 +163,7 @@ class App extends Component {
                 <div id='lmp' class="stat-amount" style={{"color": "#143CDE"}}>
                 </div>
                 <div class="stat-title" style={{"margin-top": "100px", "background": "#1EC360", "width":"300px", "margin-left": "0px"}}>
-                   Average Monthly Solar Production
+                   Average Monthly Solar Output
                 </div>
                 <div id='amsp' class="stat-amount" style={{"color": "#1EC360", "margin-left": "50px"}}>
                 </div>
@@ -192,7 +192,7 @@ class App extends Component {
               </div>
               <div style={{float: "left", "margin-left": "100px"}}>
                 <div class="stat-title" style={{"margin-left": "200px"}}>
-                   System's Production
+                   System's Output
                 </div>
                 <div style={{"margin-top": "50px", "margin-left": "100px"}}>
                   <Chart
@@ -241,7 +241,7 @@ class App extends Component {
       } else {
         return (
           <div>
-          <div style={{position:'relative', width:'2000px', 'height': '60px', background:'#086E9A'}}>
+          <div style={{position:'relative', width:'2000px', 'height': '60px', background:'#1D3D70'}}>
           </div>
           <div className="Logo">
             <img src={logo}/>
@@ -301,7 +301,7 @@ class App extends Component {
               </div>
               <div style={{float: "left", "margin-left": "100px"}}>
                 <div class="stat-title" style={{"margin-left": "200px"}}>
-                   System's Production
+                   System's Output
                 </div>
                 <div style={{"margin-top": "50px", "margin-left": "100px"}}>
                   <Chart
@@ -351,7 +351,7 @@ class App extends Component {
     } else if (quote) {
     return (
       <div className="App">
-          <div style={{position:'relative', width:'2000px', 'height': '60px', background:'#086E9A'}}>
+          <div style={{position:'relative', width:'2000px', 'height': '60px', background:'#1D3D70'}}>
           </div>
           <div className="Logo">
             <img src={logo}/>
